@@ -1,4 +1,11 @@
-- hosts: dev
+all:
+  children:
+dev:
+      hosts:
+        devserver1:
+          ansible_host: 172.31.19.6
+        devserver2:
+          ansible_host: 172.31.25.197 
   become: yes
   tasks:
     - name: install git
