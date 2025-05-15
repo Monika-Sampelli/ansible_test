@@ -1,20 +1,33 @@
 - hosts: dev
+  become: yes
   tasks:
     - name: install git
-      yum: name=git state=present
+      yum:
+        name: git
+        state: present
       tags: a
     - name: install maven
-      yum: name=maven state=present
+      yum:
+        name: maven
+        state: present
       tags: b
     - name: install docker
-      yum: name=docker state=present
+      yum:
+        name: docker
+        state: present
       tags: c
     - name: create user
-      user: name=raju state=present
+      user:
+        name: raju
+        state: present
       tags: d
     - name: install httpd server
-      yum: name=httpd state=present
+      yum:
+        name: httpd
+        state: present
       tags: e
     - name: start httpd
-      service: name=httpd state=started
+      service:
+        name: httpd
+        state: started
       tags: f
